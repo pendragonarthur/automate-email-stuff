@@ -53,6 +53,7 @@ def find_useless_emails():
 
         if status != 'OK':
             print(f'Failed fetching email data from ID: {email_id}')
+            continue
 
         raw_data = data[0][1]
         filtered_data = email.message_from_bytes(raw_data)
@@ -66,9 +67,7 @@ def find_useless_emails():
     if not trashsenders_list:
         print("No trashmail found. Good!")
     
-    print(f"Emails from the following senders will be deleted: {trashsenders_list}. ")
-
-    option = input(f"\n Total of: {len(trashsenders_list)} emails are trash. \n Are you sure you want to procede? (Y/N)").lower()
+    option = input(f"\n Total of: {len(trashsenders_list)} emails are trash. Here's your trashmail list: {trashsenders_list}. Make sure to confirm you did not insert any important email. \n Are you sure you want to procede? (Y/N)").lower()
         
     if option != 'y':
         print('Canceling operation.')
