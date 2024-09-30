@@ -1,6 +1,5 @@
 import os
 import re
-import smtplib
 import imaplib
 import email
 from email.header import decode_header
